@@ -1,7 +1,7 @@
 from typing import Dict, Type
 from abc import ABC, abstractmethod
 from inventory_report.product import Product
-
+import json
 
 class Importer(ABC):
     def __init__(self, path: str):
@@ -12,8 +12,17 @@ class Importer(ABC):
         pass
 
 
-class JsonImporter:
-    pass
+class JsonImporter(Importer):
+    def __init__(self, path: str):
+        super().__init__(path)
+
+    def import_data(self) -> list[Product]:
+        with open(self.path) as json_file:
+            data = json.load(json_file)
+            products = []
+            for product in data:
+                products.append(Product(**product))
+            return products
 
 
 class CsvImporter:
