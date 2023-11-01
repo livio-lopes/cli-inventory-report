@@ -1,13 +1,14 @@
-from dataclasses import dataclass
 from inventory_report.product import Product
+from typing import Optional
 
 
-@dataclass
 class Inventory:
-    __data: list[Product] = list()
+    def __init__(self, data: Optional[list[Product]] = None) -> None:
+        self.__data: list[Product] = [] if not data else data
 
-    def add_data(self, data: Product) -> None:
-        self.__data.append(data)
+    def add_data(self, data: list[Product]) -> None:
+        for product in data:
+            self.__data.append(product)
 
     @property
     def data(self) -> list[Product]:
