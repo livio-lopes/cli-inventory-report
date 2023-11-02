@@ -11,5 +11,3 @@ class CompleteReport(SimpleReport):
         for company, stock in sorted(self._companies.items(), reverse=True):
             lines_companies += f"- {company}: {stock}\n"
         return simple_report + lines_companies
-
-

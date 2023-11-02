@@ -37,7 +37,6 @@ class SimpleReport(Report):
         return filtered
 
     def largest_company(self) -> str:
-
         for inventory in self._reports:
             for product in inventory.data:
                 if product.company_name not in self._companies:
@@ -48,7 +47,6 @@ class SimpleReport(Report):
         return max(self._companies, key=self._companies.__getitem__)
 
     def generate(self) -> str:
-    
         output = (
             f"Oldest manufacturing date: {self.oldest_produced()}\n"
             f"Closest expiration date: {self.to_expire()}\n"
