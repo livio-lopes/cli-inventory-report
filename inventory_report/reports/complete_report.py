@@ -1,6 +1,4 @@
 from inventory_report.reports.simple_report import SimpleReport
-from inventory_report.product import Product
-from inventory_report.inventory import Inventory
 
 
 class CompleteReport(SimpleReport):
@@ -13,3 +11,5 @@ class CompleteReport(SimpleReport):
         for company, stock in sorted(self._companies.items(), reverse=True):
             lines_companies += f"- {company}: {stock}\n"
         return simple_report + lines_companies
+
+
