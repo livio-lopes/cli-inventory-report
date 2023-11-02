@@ -7,6 +7,7 @@ from datetime import date
 class SimpleReport(Report):
     def __init__(self) -> None:
         self._reports: list[Inventory] = list()
+        self._companies: dict[str, int] = dict()
 
     def add_inventory(self, inventory: Inventory) -> None:
         self._reports.append(inventory)
@@ -36,16 +37,15 @@ class SimpleReport(Report):
         return filtered
 
     def largest_company(self) -> str:
-        companies: dict[str, int] = {}
 
         for inventory in self._reports:
             for product in inventory.data:
-                if product.company_name not in companies:
-                    companies[product.company_name] = 1
+                if product.company_name not in self._companies:
+                    self._companies[product.company_name] = 1
                 else:
-                    companies[product.company_name] += 1
+                    self._companies[product.company_name] += 1
 
-        return max(companies.keys())
+        return max(self._companies.keys())
 
     def generate(self) -> str:
         output = (
