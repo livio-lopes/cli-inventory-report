@@ -45,9 +45,10 @@ class SimpleReport(Report):
                 else:
                     self._companies[product.company_name] += 1
 
-        return max(self._companies.keys())
+        return max(self._companies, key=self._companies.__getitem__)
 
     def generate(self) -> str:
+    
         output = (
             f"Oldest manufacturing date: {self.oldest_produced()}\n"
             f"Closest expiration date: {self.to_expire()}\n"
