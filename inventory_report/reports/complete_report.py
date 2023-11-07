@@ -8,6 +8,6 @@ class CompleteReport(SimpleReport):
     def generate(self) -> str:
         simple_report = super().generate()
         lines_companies = "Stocked products by company:\n"
-        for company, stock in sorted(self._companies.items(), reverse=True):
+        for company, stock in self._companies.items():
             lines_companies += f"- {company}: {stock}\n"
         return simple_report + lines_companies
