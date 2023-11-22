@@ -14,6 +14,6 @@ Esse projeto é um gerador de relatórios para dados de estoque, permitindo a im
 10. Criar a função `process_report_request`
 
 ## Como iniciar?
-1. Clonando o projeto `git clone https://github.com/livio-lopes/pro-filer.git`
+1. Clonando o projeto `git clone [https://github.com/livio-lopes/pro-filer.git](https://github.com/livio-lopes/cli-inventory-report.git)`
 2. Criando e acesso seu ambiente virtual `python3 -m venv venv && source .venv/bin/activate`
 3. Instalando dependencias `python3 -m pip install -r dev-requirements.txt`
